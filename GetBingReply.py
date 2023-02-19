@@ -9,6 +9,6 @@ async def reply_BING(query):
 	return response["item"]["messages"][1]["text"].replace('^', '') + '\n\n数据源:' 
 	  + response["item"]["messages"][1]["adaptiveCards"][0]["body"][0]["text"].split("\n\n")[0].replace('"', '')
   
-reply = asyncio.run(reply_BING(msg))
+reply = asyncio.run(reply_BING(msg)) #msg是通过websocket client拿到的微X消息 
 send_msg(reply, receiverid, room_id, nickname, 1)  #send_msg 通过websocket client发送消息给微X程序, 
           #具体参照https://github.com/cixingguangming55555/wechat-bot
